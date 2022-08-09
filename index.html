@@ -65,19 +65,21 @@
                     else {
 
                         //Selection and Iteration
-                        if (quote === null && quote === "" && author === null && author === "") {
+                        if (quote === null || quote === "" && author === null || author === "") {
 
                             //npm install prompt-sync
-                            const prompt = require('prompt-sync')();
+                            // const prompt = require('prompt-sync')();
 
-                            let inner = prompt(`No string or characters have been entered?` + ` `);
+                            let newQuote = prompt(`No quote have been entered?` + ` `);
+                            let newAuthor = prompt(`No author have been entered?` + ` `);
                             // console.log(`No string or characters have been entered`);
                             const quoteIcon = document.getElementById("quoteIcon");
                             quoteIcon.style.display = "block";
-                            document.getElementById("displayQuoteText").innerHTML = author + "says," + quote;
+                            document.getElementById("displayQuoteText").innerHTML = newQuote.concat(' ', 'says,', ' ', newAuthor);
                             // document.getElementById("displayQuote").innerHTML = `${innerText} has ${innerText.length} characters`;                        
                             quoteIcon.style.Visibility = "visible";
                             document.getElementById("inputQuote").value = "";
+                            document.getElementById("inputAuthor").value = "";
                             
                         }
                         
