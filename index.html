@@ -10,13 +10,88 @@
         <title>Printing Quotes</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
-        <script src="" async defer></script>
+         <div id="wrapper"> 
+            <h1>Printing Quotes</h1>
+            <div class="form-inline" >
+                <label for="inputString">What is the quote?</label>
+                <input type="text" id="inputQuote" class="fa-duotone fa-input-text" placeholder="Enter Quote..." name="inputQuote">
+                <label for="inputString">Who said it?</label>
+                <input type="text" id="inputAuthor" class="fa-duotone fa-input-text" placeholder="Enter author..." name="inputQuote">
+               
+                <button type="submit" onclick="displayQuoteText()">Submit</button>              
+            </div>
+
+            <div class="form-inline">                
+                <i id="quoteIcon" class="fas fa-quote-left fa-2x fa-pull-left"></i>
+                <p id="displayQuoteText" class="animate-charcter"></p>                              
+            </div>             
+            
+        </div>               
+        <script  async defer>
+
+                // function isEmptyOrSpaces(str){
+                //     return str === null || str.match(/^ *$/) !== null;
+                // }
+
+                function displayQuoteText(){  
+                    
+                    //Assignment of inputs
+                    let quote = document.getElementById("inputQuote").value;
+
+                    let author = document.getElementById("inputAuthor").value;
+
+                    //Selection
+                    if (quote !== null && quote !== '' && author !== null && author !== '') {
+                    
+                    const quoteIcon = document.getElementById("quoteIcon");
+                    quoteIcon.style.display = "block";
+                    
+                    // document.getElementById("displayQuote").innerHTML = `${author} says, ${quote}`;
+
+                    document.getElementById("displayQuoteText").innerHTML = author.concat(' ', 'says,', ' ', quote);
+                    
+                    document.getElementById("inputQuote").value = "";
+                    document.getElementById("inputAuthor").value = "";
+                    
+                    }                
+                    else {
+
+                        //Selection and Iteration
+                        if (quote === null && quote === "" && author === null && author === "") {
+
+                            //npm install prompt-sync
+                            const prompt = require('prompt-sync')();
+
+                            let inner = prompt(`No string or characters have been entered?` + ` `);
+                            // console.log(`No string or characters have been entered`);
+                            const quoteIcon = document.getElementById("quoteIcon");
+                            quoteIcon.style.display = "block";
+                            document.getElementById("displayQuoteText").innerHTML = author + "says," + quote;
+                            // document.getElementById("displayQuote").innerHTML = `${innerText} has ${innerText.length} characters`;                        
+                            quoteIcon.style.Visibility = "visible";
+                            document.getElementById("inputQuote").value = "";
+                            
+                        }
+                        
+                    }
+                    
+                }
+
+                
+
+          
+
+            
+             
+        </script>
+        
     </body>
 </html>
