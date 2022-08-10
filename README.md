@@ -25,7 +25,8 @@ concatenation instead.
 
 Challenge:
 • In Chapter 7, Data Structures, on page 63, you’ll practice
-working with lists of data. Modify this program so that
+working with lists of data. 
+Modify this program so that
 instead of prompting for quotes from the user, you create a structure that holds quotes and their associated
 attributions and then display all of the quotes using the
 format in the example. An array of maps would be a
